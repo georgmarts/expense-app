@@ -25,25 +25,32 @@ main {
 
 }
 
-/* .item1 { grid-area: edit-btn; }
-.item2 { grid-area: edit-input-field; }
-.item3 { grid-area: edit-submit-btn; }
-.item4 { grid-area: delete-btn; } */
-
-
-.month-expense {
-  font-size: 14px;
-  text-align: left;
-  background-color:#008CBA;
-  padding: 15px;
-  color: white;
-  margin: 5px;
+fieldset {
+  margin-bottom: 10px;
 }
 
-.total-expense {
+.expense-input {
+  width: 96%;
+  height: 30px;
+  margin-top: 7px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.expense-submit {
+  background-color: #4CAF50;
+  width: 100%;
+  height: 60px;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
   display: inline-block;
-  margin-bottom: 5px;
-  font-size: 18px;
+  font-size: 20px;
+  margin: 0px 0px 4px 0px;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
 .detailed-expense {
@@ -63,52 +70,68 @@ main {
     }
 
 .single-expense {
-  width: 250px;
-  height: 30px;
-  line-height: 30px;
-  font-size: 12px;
+  width: 235px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
   border: 1px solid;
-  margin: 5px;  
 }
 
-.delete-btn, .edit-btn {
+.delete-btn, .edit-btn, .edit-submit-btn {
   background-color: red;
   border: none;
   color: white;
-  padding: 7px 10px;
+  width: 47.5px;
+  height: 42px;
   text-align: center;
+  vertical-align: middle;
   text-decoration: none;
   font-size: 14px;
-  margin: 4px 2px;
+  margin: 4px 0px;
   cursor: pointer;
-}
-
-.delete-btn {
-  padding: 9px 13px;
-  margin-right: 0;
 }
 
 .edit-btn {
   background-color: orange;
 }
 
-.edit-submit-btn {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 9px 13px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  margin: 8px 2px 4px 2px;
-  cursor: pointer;
+.edit-input-field {
+  vertical-align: middle;
+  height: 33px;
+  margin-right: 3px;
+  width: 55px;
+  font-size: 20px;
 }
 
-.edit-input-field {
-  height: 30px;
+.edit-submit-btn {
+  background-color: #4CAF50;
   margin-right: 2px;
-  width: 60px;
+  margin-bottom: 4px;
+  vertical-align: middle;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.delete-btn {
+  margin-right: 0;
+  font-size: 20px;
+}
+
+.month-expense {
+  font-size: 18px;
+  text-align: left;
+  background-color:#008CBA;
+  padding: 15px;
+  color: white;
+  margin: 5px 0 5px 0;
+}
+
+.total-expense {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 18px;
+  text-transform: uppercase;
+
 }
 
 input {
@@ -116,23 +139,16 @@ input {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+.option-form {
+  margin-top: 15px;
+}
+
+.choose-month-label {
+  margin-right: 15px;
+}
+
 .custom-select {
-  height: 40px;
-  width: 80px;
+  height: 30px;
+  width: 78px;
   font-size: 1rem;
 }
-
-.expense-submit {
-    background-color: #4CAF50;
-    width: 98%;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 8px 2px 4px 2px;
-    cursor: pointer;
-}
-
