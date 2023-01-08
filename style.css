@@ -9,10 +9,16 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+/* html {
+  display: table;
+  margin: auto;
+} */
+
 body {
     display: grid;
     justify-items: center;
     grid-template-columns: auto;
+    margin:0 auto; 
     padding: 30px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
