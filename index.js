@@ -20,16 +20,16 @@ function App() {
         setId(initId + 1);
       };
 
-    // useEffect(() => {
-    //     const storedExpenses = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-    //     if (storedExpenses) setExpenses(storedExpenses)
-    //   }, [])
+    useEffect(() => {
+        const storedExpenses = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+        if (storedExpenses) setExpenses(storedExpenses)
+      }, [])
 
-    // useEffect(() => {
-    //     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(expenses))
-    //   },
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(expenses))
+      },
 
-    //   [expenses])
+      [expenses])
 
     useEffect(()=>{incrementCount()}, [expenses])
 
