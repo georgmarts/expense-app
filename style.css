@@ -11,6 +11,7 @@ input[type=number] {
 
 body {
     display: grid;
+    justify-items: center;
     place-items: center;
     grid-template-columns: auto;
     padding: 30px;
