@@ -108,6 +108,7 @@ function App() {
             return expense.id !== id;
           });
         setExpenses(updatedItem);
+        setIsEditing(false);
     }
 
     // Variable for current month
