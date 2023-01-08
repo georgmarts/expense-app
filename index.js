@@ -132,23 +132,20 @@ function App() {
           setMonthButtonValue(e.target.value)
     }
 
-    const monthNames = ["нулевой месяц", "январь", "февраль", "март", "апрель", "май", "июнь",
-    "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"
+    const monthNames = ["нулевой месяц", "янв", "фев", "мар", "апр", "май", "июн",
+    "июл", "авг", "сен", "окт", "ноя", "дек"
     ];
 
 return <main>
     <form onSubmit = {handleClick}>
     <fieldset>
-        <legend>Дом. расход:</legend>
-        <input value={homeExpenseInput} type="number" id="homeExpense" name="homeExpense" placeholder="введите сумму" onChange={handleHomeExpenseInput}/><br/>
+        <input className='expense-input' value={homeExpenseInput} type="number" id="homeExpense" name="homeExpense" placeholder="Дом. расход" onChange={handleHomeExpenseInput}/><br/>
         </fieldset>
     <fieldset>
-        <legend>Наш расход:</legend>
-        <input value={ownExpenseInput} type="number" id="ownExpense" name="ownExpense" placeholder="введите сумму" onChange={handleOwnExpenseInput}/><br/>
+        <input className='expense-input' value={ownExpenseInput} type="number" id="ownExpense" name="ownExpense" placeholder="Наш расход" onChange={handleOwnExpenseInput}/><br/>
     </fieldset>
     <fieldset>
-        <legend>Лекарства:</legend>
-        <input value={drugsExpenseInput} type="number" id="drugExpense" name="drugExpense" placeholder="введите сумму" onChange={handleDrugExpenseInput}/><br/>
+        <input className='expense-input' value={drugsExpenseInput} type="number" id="drugExpense" name="drugExpense" placeholder="Лекарства" onChange={handleDrugExpenseInput}/><br/>
     </fieldset>
     <input className='expense-submit' type="submit" value="Сохранить"/>
     </form>
@@ -158,13 +155,13 @@ return <main>
             let thisId = x.id
         return <div className='total-container' key={index}>
             <div className='single-expense'>
-                Общ: {Number(x.homeExpense) + Number(x.ownExpense) + Number(x.drugExpense)} / 
-                Дом: {x.homeExpense} / 
+                Расход за день: {Number(x.homeExpense) + Number(x.ownExpense) + Number(x.drugExpense)}
+                {/* / Дом: {x.homeExpense} / 
                 Наш: {x.ownExpense} / 
-                Лек: {x.drugExpense}
+                Лек: {x.drugExpense} */}
             </div>
             <div className='edit-btn-div'>
-                <button className='edit-btn' onClick={()=>handleEditClick(x)}><i class="fa-solid fa-pen"></i></button>
+                <button className='edit-btn' onClick={()=>handleEditClick(x)}><i className="fa-solid fa-pen"></i></button>
             </div>
             <div className='delete-btn-div'>
 
@@ -173,9 +170,9 @@ return <main>
                 <>
                 <form onSubmit={handleHomeExpenseEditSubmit} style={x.active? { display: 'block'} : {display: 'none'}}>
 
-                <input className='edit-input-field item-1' placeholder='дом' type='text' onChange={handleHomeExpenseEditInput}/>
-                <input className='edit-input-field item-2' placeholder='наш' type='text' onChange={handleOwnExpenseEditInput}/>
-                <input className='edit-input-field item-3' placeholder='лек' type='text' onChange={handleDrugsExpenseEditInput}/>
+                <input className='edit-input-field item-1' placeholder='дом' type='number' onChange={handleHomeExpenseEditInput}/>
+                <input className='edit-input-field item-2' placeholder='наш' type='number' onChange={handleOwnExpenseEditInput}/>
+                <input className='edit-input-field item-3' placeholder='лек' type='number' onChange={handleDrugsExpenseEditInput}/>
                 
                 <input className='edit-submit-btn item-4' type='submit' value='ок'/>
                 <button className='delete-btn item-5' onClick={()=>handleExpenseDelete(thisId)}><i className="fa-solid fa-xmark"></i></button>
@@ -203,8 +200,8 @@ return <main>
     </section>
 
 
-    <form action="/action_page.php">
-  <label htmlFor="cars">Выберите месяц:</label>
+    <form className='option-form'>
+  <label className='choose-month-label' htmlFor="cars">Выберите месяц:</label>
   <select className='custom-select' onChange={showMonthExpenses} name="cars" id="cars">
         <option className='test' value = '01'>Янв</option>
         <option value = '02'>Фев</option>
