@@ -228,18 +228,16 @@ return <main>
 
 <button className='expense-submit' 
 style={{backgroundColor: 'red', fontSize: '20px', marginTop: '10px' }} 
-onClick={showExpensesPerWeek}>Расход за неделю
+onClick={showExpensesPerWeek}>Расход за месяц
 </button>
 
-{expenses.slice(-7).reverse().map((x, index)=>{
+{expenses.slice(-31).reverse().map((x, index)=>{
             let thisId = x.id
             if (expensePerWeekStatus) {
         return <div className='total-container' key={index}>
             <div className='single-expense'>
-                Расход за день: {Number(x.homeExpense) + Number(x.ownExpense) + Number(x.drugExpense)}
-                {/* / Дом: {x.homeExpense} / 
-                Наш: {x.ownExpense} / 
-                Лек: {x.drugExpense} */}
+                {/* {Number(x.homeExpense) + Number(x.ownExpense) + Number(x.drugExpense)}: */}
+                <span style={{color: 'red'}}>{x.date}.{x.month}:</span> {x.homeExpense} + {x.ownExpense} + {x.drugExpense} - 
             </div>
             <div className='edit-btn-div'>
                 <button className='edit-btn' onClick={()=>handleEditClick(x)}><i className="fa-solid fa-pen"></i></button>
