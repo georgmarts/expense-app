@@ -51,7 +51,7 @@ function App() {
         let month = String(d.getMonth()+1).padStart(2, '0');
         let date = String(d.getDate()).padStart(2, '0');
         let year = d.getFullYear()
-        setExpenses([...expenses, {id: initId,
+        setExpenses([...expenses, {id: Date.now(),
             homeExpense: homeExpenseInput, ownExpense: ownExpenseInput, drugExpense: drugsExpenseInput,
             date: date, month: month, year: year, active: false}])
         setHomeExpenseInput('')
