@@ -237,7 +237,7 @@ onClick={showExpensesPerWeek}>Расход за месяц
         return <div className='total-container' key={index}>
             <div className='single-expense'>
                 {/* {Number(x.homeExpense) + Number(x.ownExpense) + Number(x.drugExpense)}: */}
-                <span style={{color: 'red'}}>{x.date}.{x.month}:</span> {x.homeExpense} + {x.ownExpense} + {x.drugExpense} - 
+                <span style={{color: 'red'}}>{x.date}.{x.month}:</span> {x.homeExpense} + {x.ownExpense} + {x.drugExpense} 
             </div>
             <div className='edit-btn-div'>
                 <button className='edit-btn' onClick={()=>handleEditClick(x)}><i className="fa-solid fa-pen"></i></button>
