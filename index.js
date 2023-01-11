@@ -136,6 +136,13 @@ function App() {
     const monthNames = ["нулевой месяц", "янв", "фев", "мар", "апр", "май", "июн",
     "июл", "авг", "сен", "окт", "ноя", "дек"
     ];
+    
+    const [expensePerWeekStatus, setExpensePerWeekStatus] = useState(false)
+
+    function showExpensesPerWeek(){
+        setExpensePerWeekStatus(x => !x)
+    }
+
 
 return <main>
     <form onSubmit = {handleClick}>
@@ -218,6 +225,49 @@ return <main>
         <option value = '12'>Дек</option>
   </select>
 </form>
+
+<button className='expense-submit' 
+style={{backgroundColor: 'red', fontSize: '20px', marginTop: '10px' }} 
+onClick={showExpensesPerWeek}>Расход за неделю
+</button>
+
+{expenses.slice(-7).reverse().map((x, index)=>{
+            let thisId = x.id
+            if (expensePerWeekStatus) {
+        return <div className='total-container' key={index}>
+            <div className='single-expense'>
+                Расход за день: {Number(x.homeExpense) + Number(x.ownExpense) + Number(x.drugExpense)}
+                {/* / Дом: {x.homeExpense} / 
+                Наш: {x.ownExpense} / 
+                Лек: {x.drugExpense} */}
+            </div>
+            <div className='edit-btn-div'>
+                <button className='edit-btn' onClick={()=>handleEditClick(x)}><i className="fa-solid fa-pen"></i></button>
+            </div>
+            <div className='delete-btn-div'>
+
+                {isEditing?
+
+                <>
+                <form onSubmit={handleHomeExpenseEditSubmit} style={x.active? { display: 'block'} : {display: 'none'}}>
+
+                <input className='edit-input-field item-1' placeholder='дом' type='number' onChange={handleHomeExpenseEditInput}/>
+                <input className='edit-input-field item-2' placeholder='наш' type='number' onChange={handleOwnExpenseEditInput}/>
+                <input className='edit-input-field item-3' placeholder='лек' type='number' onChange={handleDrugsExpenseEditInput}/>
+                
+                <input className='edit-submit-btn item-4' type='submit' value='ок'/>
+                <button className='delete-btn item-5' onClick={()=>handleExpenseDelete(thisId)}><i className="fa-solid fa-xmark"></i></button>
+
+                </form>
+
+                </>
+                
+                : null}
+
+            </div>
+            </div> } else {null}
+        })}
+        
     </main>
 
 }
